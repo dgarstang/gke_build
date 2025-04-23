@@ -3,7 +3,6 @@
 #
 module "network" {
   source  = "../../modules/terraform-google-network"
-  count   = var.create_network ? 1 : 0
   subnets = var.subnets
 }
 

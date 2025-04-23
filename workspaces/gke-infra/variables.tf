@@ -4,33 +4,6 @@ variable "create_bastion" {
   description = "Whether to create a bastion host"
 }
 
-variable "create_gke" {
-  type        = bool
-  default     = true
-  description = "Whether to create the GKE cluster"
-}
-
-variable "create_network" {
-  type        = bool
-  default     = true
-  description = "Whether to create the network"
-}
-
-variable "create_wireguard_client" {
-  type        = bool
-  default     = true
-  description = "Whether to configure the wireguard vpn client"
-}
-
-variable "gke_cluster_name" {
-  type        = string
-  description = "Name of the GKE cluster"
-  validation {
-    condition     = length(var.gke_cluster_name) < 32
-    error_message = "The GKE cluster name must be less than 32 characters."
-  }
-}
-
 variable "network_name" {
   type        = string
   description = "Name of the VPC network"
@@ -108,7 +81,4 @@ variable "zone" {
     condition     = can(regex("^[a-z]+-[a-z]+[0-9]+-[a-z]$", var.zone))
     error_message = "Zone must follow the GCP zone format, e.g., us-central1-a, europe-west1-b."
   }
-}
-
-variable "argocd_admin_password" {
 }
