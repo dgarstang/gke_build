@@ -1,0 +1,9 @@
+server:
+  service:
+    type: LoadBalancer
+    annotations: {}
+
+
+configs:
+  secret:
+    argocdServerAdminPassword: $2y$10$wtVVAc7d7/eSesgIktOlZuCVlVlrH1ytgDZuKnkmLVMc/s07ltu4u
