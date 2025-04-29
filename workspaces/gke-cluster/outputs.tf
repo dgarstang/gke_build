@@ -14,3 +14,7 @@ output "vpn_public_key" {
 output "gke_cluster_private_endpoint" {
   value = module.gke[0].private_endpoint
 } */
+
+output "gke_endpoint_ip" {
+  value = module.gke.endpoint_ip
+}

@@ -1,0 +1,28 @@
+resource "argocd_application" "my_app" {
+  metadata {
+    name      = "guestbook"
+    namespace = "argocd"
+  }
+
+  spec {
+    project = "default"
+
+    source {
+      repo_url        = "https://github.com/argoproj/argocd-example-apps.git"
+      target_revision = "master"
+      path            = "guestbook"
+    }
+
+    destination {
+      server    = "https://kubernetes.default.svc"
+      namespace = "default"
+    }
+
+    sync_policy {
+      automated {
+        prune = true
+        self_heal = true
+      }
+    }
+  }
+}

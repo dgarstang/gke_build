@@ -1,7 +1,6 @@
 data "kubernetes_service" "argocd_server" {
-   provider = kubernetes.gke
   metadata {
     name      = "argocd-server"
-    namespace = "argocd"
+    namespace = kubernetes_namespace.argocd.metadata[0].name
   }
 }

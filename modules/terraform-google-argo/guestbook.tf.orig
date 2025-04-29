@@ -1,5 +1,0 @@
-provider "argocd" {
-  server_addr = "https://34.82.26.121"
-  username    = "admin"
-  password    = base64decode(data.kubernetes_secret.argocd_admin.data["password"])
-}

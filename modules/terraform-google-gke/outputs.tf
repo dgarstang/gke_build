@@ -18,3 +18,7 @@ output "client_key" {
 output "client_certificate" {
   value = google_container_cluster.minimal.master_auth[0].client_certificate
 }
+
+output "endpoint_ip" {
+  value = google_container_cluster.minimal.endpoint
+}

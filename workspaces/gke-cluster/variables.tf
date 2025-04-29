@@ -51,3 +51,6 @@ variable "zone" {
     error_message = "Zone must follow the GCP zone format, e.g., us-central1-a, europe-west1-b."
   }
 }
+
+#variable "argocd_admin_password" {
+#}

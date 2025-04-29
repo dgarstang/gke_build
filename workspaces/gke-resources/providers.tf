@@ -1,15 +1,17 @@
-provider "kubernetes" {
-  config_path            = "~/.kube/config"
-}
-
 provider "helm" {
   kubernetes {
-    config_path = "~/.kube/config"
+    config_path = "~/.kube/config" # Must match the kubernetes provider config
   }
 }
 
-/*provider "argocd" {
-  server_addr = "https://${module.argocd_server_ip}"
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+
+provider "argocd" {
+  server_addr = "${local.argocd_ip_addr}:80"
+  #server_addr = "34.168.92.172:80" #${module.argocd_server_ip}"
   username    = "admin"
-  password    = var.argocd_admin_password
-} */
+  password    = "Ograysion0#"
+  insecure    = true
+}
