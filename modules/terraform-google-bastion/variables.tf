@@ -24,13 +24,13 @@ variable "ssh_public_key" {
   type        = string
 }
 
+/*variable "vpn_client_public_key" {
+  type = string
+} */
+
 variable "network_name" {
   description = "The name of the network where the firewall will be created"
   type        = string
-}
-
-variable "vpn_client_public_key" {
-  type = string
 }
 
 variable "enable_vpn" {

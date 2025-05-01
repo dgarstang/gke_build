@@ -14,7 +14,6 @@ crash.*.log
 terraform.rc
 
 # Sensitive variable definition files (if you use them)
-*.tfvars
 *.tfvars.json
 !example.tfvars
 

@@ -27,7 +27,7 @@ resource "google_compute_instance" "bastion" {
     {
       ssh-keys = var.ssh_public_key
     },
-    var.enable_vpn ? {
+    /*var.enable_vpn ? {
       startup-script = <<-EOT
         #!/bin/bash
         apt-get update
@@ -61,7 +61,7 @@ resource "google_compute_instance" "bastion" {
         systemctl enable wg-quick@wg0
         systemctl start wg-quick@wg0
       EOT
-    } : {}
+    } : {} */
   )
 }
 
