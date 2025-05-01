@@ -7,6 +7,10 @@ subnets = {
   "custom-us-west1" = {
     ip_cidr_range = "10.10.0.0/24"
     region        = "us-west1"
+    secondary_ip_ranges = {
+      gke-pods      = "10.10.1.0/24"
+      gke-services  = "10.10.2.0/24"
+    }
   }
 }
 zone = "us-west1-a"

@@ -1,0 +1,6 @@
+gke_cluster_name="cluster1"
+network_name="custom"
+project_id     = "dotted-cedar-456503-e8"
+region="us-west1"
+subnet_id="custom-us-west1"
+zone="us-west1-a"
