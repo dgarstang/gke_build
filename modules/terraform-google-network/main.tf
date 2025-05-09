@@ -37,3 +37,15 @@ resource "google_compute_firewall" "ingress-allow-from-us-west1-all" {
   source_ranges = ["10.138.0.0/20"]
   depends_on    = [google_compute_network.custom_vpc]
 }
+
+resource "google_compute_firewall" "allow_ssh_from_subnet" {
+  name    = "allow-ssh-from-subnet"
+  network = "custom"
+  allow {
+    protocol = "tcp"
+    ports    = ["22", "8200"]
+  }
+  source_ranges = ["0.0.0.0/0"]
+  # target_tags = ["allow-ssh"] # This should match the tags on the VM if you're using target tags for your VMs
+  depends_on    = [google_compute_network.custom_vpc]
+}
