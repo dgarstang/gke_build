@@ -14,13 +14,17 @@ resource "google_compute_instance" "service" {
   }
   network_interface {
     subnetwork = var.subnet_id
+    dynamic "access_config" {
+      for_each = var.assign_public_ip ? [1] : []
+      content {}
+    }
   }
   tags = ["allow-ssh", "wireguard"]
   metadata = merge(
-    {
-      ssh-keys = var.ssh_public_key
-    },
-    var.extra_metadata
+  {
+    ssh-keys       = var.ssh_public_key
+    startup-script = local.startup_script
+  },
+  { for k, v in var.extra_metadata : k => v if k != "startup-script" }
   )
 }
-

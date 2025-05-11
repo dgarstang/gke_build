@@ -28,9 +28,9 @@ resource "google_kms_crypto_key_iam_member" "vault_sa" {
 
 # Corrected IAM Binding for Key Ring Viewer Permissions
 resource "google_kms_key_ring_iam_member" "vault_sa_viewer" {
-  key_ring_id   = google_kms_key_ring.vault.id  # Correct argument
-  role          = "roles/cloudkms.viewer"
-  member        = "serviceAccount:vaultsa@dotted-cedar-456503-e8.iam.gserviceaccount.com"
-  depends_on    = [google_kms_crypto_key.vault, google_kms_crypto_key_iam_member.vault_sa]
+  key_ring_id = google_kms_key_ring.vault.id # Correct argument
+  role        = "roles/cloudkms.viewer"
+  member      = "serviceAccount:vaultsa@dotted-cedar-456503-e8.iam.gserviceaccount.com"
+  depends_on  = [google_kms_crypto_key.vault, google_kms_crypto_key_iam_member.vault_sa]
 }
 

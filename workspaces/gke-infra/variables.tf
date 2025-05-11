@@ -1,9 +1,3 @@
-variable "create_bastion" {
-  type        = bool
-  default     = true
-  description = "Whether to create a bastion host"
-}
-
 variable "network_name" {
   type        = string
   description = "Name of the VPC network"
@@ -65,15 +59,6 @@ variable "subnets" {
   }
 }
 
-/*variable "vpn_client_public_key" {
-  type        = string
-  description = "WireGuard public key"
-  validation {
-    condition     = can(regex("^[A-Za-z0-9+/]{43}=$", var.vpn_client_public_key))
-    error_message = "WireGuard public key must be a valid base64-encoded string, 44 characters long."
-  }
-} */
-
 variable "zone" {
   type        = string
   description = "Zone where resources will be deployed"
@@ -81,4 +66,8 @@ variable "zone" {
     condition     = can(regex("^[a-z]+-[a-z]+[0-9]+-[a-z]$", var.zone))
     error_message = "Zone must follow the GCP zone format, e.g., us-central1-a, europe-west1-b."
   }
+}
+
+variable "tailscale_auth_key" {
+  type = string
 }
